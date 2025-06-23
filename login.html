@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+var username=prompt("Enter your username: ");
+var password1=prompt("Enter your three Letters of your username and add first 3 numbers: ");
+if(username&&username.length>=3){
+    const password=username.substring(0,3)+'123';
+    
+     if (password==password1){
+     document.write("Login successful")
+     
+ }   else{
+     document.write("Invalid Password")
+ }
+ 
+}else{
+    document.write("your password is atleast three character ")
+}
+    </script>
+    
+</body>
+</html>
