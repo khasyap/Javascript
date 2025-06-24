@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>function student(name,address,education,marks){
+    this.name=name;
+    this.address=address;
+    this.education=education;
+    this.marks=marks;
+}
+var s1=new student("saketh","vizag","btech",85);
+var s2=new student("tarun","ongole","btech",90);
+var s3=new student("vikki","ongole","b.com",90);
+var field=prompt("enter marks");
+var all=[s1,s2,s3];
+
+var newarr=all.filter(a=>a.marks==field);
+
+for(let a of newarr){
+    for(let key in a){
+        document.writeln(a[key])
+    }
+}
+</script>
+</body>
+</html>
