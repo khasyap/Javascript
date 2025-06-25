@@ -6,25 +6,39 @@
     <title>Document</title>
 </head>
 <body>
-    <script>function student(name,address,education,marks){
-    this.name=name;
-    this.address=address;
-    this.education=education;
-    this.marks=marks;
-}
-var s1=new student("saketh","vizag","btech",85);
-var s2=new student("tarun","ongole","btech",90);
-var s3=new student("vikki","ongole","b.com",90);
-var field=prompt("enter marks");
-var all=[s1,s2,s3];
-
-var newarr=all.filter(a=>a.marks==field);
-
-for(let a of newarr){
-    for(let key in a){
-        document.writeln(a[key])
+    <h1 id="myh1"></h1>
+    <button onclick="start()">Start</button>
+    <button onclick="pasue()">Pasue</button>
+    <button onclick="reset()">Reset</button>
+    <script>
+      var sec=0,min=0,hrs=0;
+      var interval;
+      function hello(){
+        sec++;
+        if(sec==60){
+            sec=0;
+            min++;
+        }
+        if(min==60){
+            sec=0,min=0;
+            hrs++;
+        }
+        if(hrs==24){
+            hrs=0,min=0,sec=0;
+        }
+        document.getElementById("myh1").innerHTML=`${hrs.toString().padStart(2,"0")} : ${min.toString().padStart(2,"0")} : ${sec.toString().padStart(2,"0")}`;
+      }
+        function start(){
+        interval=setInterval(hello,1000);
     }
-}
-</script>
+    function pasue(){
+        clearInterval(interval)
+     }
+    function reset(){
+               min=0, hrs=0, sec=0; 
+        document.getElementById("myh1").innerHTML=`${hrs.toString().padStart(2,"0")} : ${min.toString().padStart(2,"0")} : ${sec.toString().padStart(2,"0")}`;  
+    }
+
+    </script>
 </body>
 </html>
