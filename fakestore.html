@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,th,td{
+            border:1px solid black;
+            padding:10px;
+            border-collapse: collapse;
+        }
+        .img-fluid{
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Products</h1>
+    <div id="productlist">
+
+    </div>
+
+    <script>
+
+
+        var str="<table>";
+            str+=`<tr>
+            <th>Sno</th>
+            <th>Product Name</th>
+            <th>Product Price</th>
+            <th>Product Image</th>
+            <th>Actions</th>
+            </tr>`
+
+        fetch('https://fakestoreapi.com/products')
+        .then((res)=>res.json())
+        .then((data)=>{    
+          data.forEach((p)=>{
+                 str+=`<tr>
+                        <td>${p.id}</td>
+                        <td>${p.title}</td>
+                        <td>${p.price}</td>
+                        <td><img src='${p.image}' class="img-fluid"></td>
+                        <td><button class='buynow'>Buy Now</button>
+                        </tr>`
+          })         
+                    str+="</table>"
+                    document.getElementById("productlist").innerHTML=str;
+        })
+        
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+</body>
+</html>
