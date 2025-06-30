@@ -4,41 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .hello{
+            color:red;
+            font-family: chiller;
+        }
+    </style>
 </head>
 <body>
-    <h1 id="myh1"></h1>
-    <button onclick="start()">Start</button>
-    <button onclick="pasue()">Pasue</button>
-    <button onclick="reset()">Reset</button>
+      <button onclick="changeStyles()">Add Content</button>
+
     <script>
-      var sec=0,min=0,hrs=0;
-      var interval;
-      function hello(){
-        sec++;
-        if(sec==60){
-            sec=0;
-            min++;
+        function changeStyles(){
+        
+         var myh1=   document.createElement("h1");
+            myh1.textContent="Hello world"
+            myh1.classList.add("hello");
+           var mydiv= document.createElement("div");
+           mydiv.append(myh1);
+
+           document.querySelector("body").append(mydiv)
+
         }
-        if(min==60){
-            sec=0,min=0;
-            hrs++;
-        }
-        if(hrs==24){
-            hrs=0,min=0,sec=0;
-        }
-        document.getElementById("myh1").innerHTML=`${hrs.toString().padStart(2,"0")} : ${min.toString().padStart(2,"0")} : ${sec.toString().padStart(2,"0")}`;
-      }
-        function start(){
-        interval=setInterval(hello,1000);
-    }
-    function pasue(){
-        clearInterval(interval)
-     }
-    function reset(){
-               min=0, hrs=0, sec=0; 
-        document.getElementById("myh1").innerHTML=`${hrs.toString().padStart(2,"0")} : ${min.toString().padStart(2,"0")} : ${sec.toString().padStart(2,"0")}`;  
-    }
+
+
+
 
     </script>
+
+
+
+
 </body>
 </html>
